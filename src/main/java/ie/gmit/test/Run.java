@@ -6,11 +6,11 @@ import java.lang.String;
 import ie.gmit.Programme;
 import ie.gmit.Student;
 import ie.gmit.Module;
-import ie.gmit.Grades;
+import ie.gmit.Grade;
 import ie.gmit.Attendance;
 import org.joda.time.DateTime;
 
-public class Run<Students> {
+public class Run {
 
     public static void main(String[] args) {
 
@@ -36,37 +36,67 @@ public class Run<Students> {
         ArrayList<Module> Modules = new ArrayList<Module>();
         Module CloudComputing = new Module("Cloud Computing", "CC101");
         Module Maths = new Module("Mathematics", "MA203");
-        Module BioMedScience = new Module("Biomedical Science", "BS511");
-        Module BusinessInfo = new Module("Business Information Systems", "B1222");
+        Module EmbeddedRTOS = new Module("Embedded Free RTOS", "BS511");
+        Module EnterpriseIn = new Module("Enterprise and Innovation", "B1222");
         Module SoftwareEng = new Module("Software Engineering with Test", "SE333");
         Module MobileAppDev = new Module("Mobile App Development", "MAD987");
 
         //Adding students to modules
         CloudComputing.addStudent(Peter);
+        CloudComputing.addStudent(Nicola);
+        CloudComputing.addStudent(Megan);
+        CloudComputing.addStudent(John);
         CloudComputing.addStudent(Dean);
+        CloudComputing.addStudent(Tim);
 
 
         Maths.addStudent(Peter);
+        Maths.addStudent(Nicola);
+        Maths.addStudent(Megan);
+        Maths.addStudent(John);
         Maths.addStudent(Dean);
         Maths.addStudent(Tim);
 
+        EmbeddedRTOS.addStudent(Peter);
+        EmbeddedRTOS.addStudent(Nicola);
+        EmbeddedRTOS.addStudent(Megan);
+        EmbeddedRTOS.addStudent(John);
+        EmbeddedRTOS.addStudent(Dean);
+        EmbeddedRTOS.addStudent(Tim);
 
-        //Creating new courses
+        EnterpriseIn.addStudent(Peter);
+        EnterpriseIn.addStudent(Nicola);
+        EnterpriseIn.addStudent(Megan);
+        EnterpriseIn.addStudent(John);
+        EnterpriseIn.addStudent(Dean);
+        EnterpriseIn.addStudent(Tim);
+
+        SoftwareEng.addStudent(Peter);
+        SoftwareEng.addStudent(Nicola);
+        SoftwareEng.addStudent(Megan);
+        SoftwareEng.addStudent(John);
+        SoftwareEng.addStudent(Dean);
+        SoftwareEng.addStudent(Tim);
+
+        MobileAppDev.addStudent(Peter);
+        MobileAppDev.addStudent(Nicola);
+        MobileAppDev.addStudent(Megan);
+        MobileAppDev.addStudent(John);
+        MobileAppDev.addStudent(Dean);
+        MobileAppDev.addStudent(Tim);
+
+
+        //Creating course
         Programme SEE = new Programme("Software & Electronic Engineering", new DateTime(2019, 9, 5, 9, 0), new DateTime(2020, 5, 19, 17, 0));
 
 
         //adding modules to the course programme
-
-        SEE.addModule(Maths);
         SEE.addModule(CloudComputing);
         SEE.addModule(Maths);
+        SEE.addModule(EmbeddedRTOS);
+        SEE.addModule(EnterpriseIn);
         SEE.addModule(SoftwareEng);
         SEE.addModule(MobileAppDev);
-
-
-        //Grades  = new Grades("")
-        //CloudComputing.addGrade(Peter) = "A";
-
 
         Peter.setProgramme(SEE);
         Nicola.setProgramme(SEE);
@@ -75,8 +105,27 @@ public class Run<Students> {
         John.setProgramme(SEE);
         Tim.setProgramme(SEE);
 
+        ArrayList<Grade> Grades = new ArrayList<Grade>();
+        Grade A = new Grade("A");
+        Grade B = new Grade("B");
+        Grade C = new Grade("C");
+        Grade D = new Grade("D");
+        Grade NG = new Grade("NG");
 
-        System.out.println("List of students and their results");
+        A.addStudent(Peter);
+        B.addStudent(Nicola);
+        B.addStudent(Megan);
+        C.addStudent(John);
+        C.addStudent(Dean);
+        D.addStudent(Tim);
+
+        ArrayList<Attendance> Attendance = new ArrayList<>();
+        Attendance Distinction = new Attendance("Distinction");
+        Attendance Merit = new Attendance("Merit");
+        Attendance Pass = new Attendance("Pass");
+
+
+        System.out.println("List of students/GPA results/Average Attendance");
 //
 
         for (Student student : Students) {
@@ -84,14 +133,28 @@ public class Run<Students> {
             System.out.println(student.getProgramme().toString());
 
             System.out.println("---List of Modules----");
-            for(Module module:student.getProgramme().getModules())
-            {
-                if(module.getStudents().contains(student)){
+            for (Module module : student.getProgramme().getModules()) {
+                if (module.getStudents().contains(student)) {
                     System.out.println(module.toString());
                 }
             }
             System.out.println("\n");
-        }
+
+            /*System.out.println("---GPA----");
+        for (Grade grade : student.getStudent().getGrades()) {
+            if (grade.getStudents().contains(student)) {
+                System.out.println(grade.toString());
+            }
+        System.out.println("\n");*/
+
+            /*System.out.println("---Attendance----");
+        for (Attendance attendance : student.getStudent().getAttendance()) {
+            if (attendance.getStudents().contains(student)) {
+                System.out.println(attendance.toString());
+            }
+        System.out.println("\n");*/
+            }
+
     }
 
 }
