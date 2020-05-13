@@ -7,7 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="SoftwareEngineeringProjectTest-master" />
+        <module name="SoftwareEngineeringProject-master" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="SoftwareEngineeringProject-master" target="1.8" />
+      <module name="SoftwareEngineeringProjectTest-master" target="9" />
+    </bytecodeTargetLevel>
   </component>
 </project>
